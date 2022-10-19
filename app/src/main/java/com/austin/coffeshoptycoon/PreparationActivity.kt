@@ -147,6 +147,10 @@ class PreparationActivity : AppCompatActivity() {
                 countCoffe = inputCoffee.text.toString().toInt()
                 totalPriceCoffe = coffeePrice * countCoffe
                 tampilinData()
+            }else{
+                countCoffe = 0
+                totalPriceCoffe = coffeePrice * countCoffe
+                tampilinData()
             }
         }
 
@@ -155,12 +159,20 @@ class PreparationActivity : AppCompatActivity() {
                 countMilk = inputMilk.text.toString().toInt()
                 totalPriceMilk = milkPrice * countMilk
                 tampilinData()
+            }else{
+                countMilk = 0
+                totalPriceMilk = milkPrice * countMilk
+                tampilinData()
             }
         }
 
         txtInputWater.addTextChangedListener(){
             if (inputWater.text.toString() != ""){
                 countWater = inputWater.text.toString().toInt()
+                totalPriceWater = waterPrice * countWater
+                tampilinData()
+            }else{
+                countWater = 0
                 totalPriceWater = waterPrice * countWater
                 tampilinData()
             }
@@ -172,7 +184,8 @@ class PreparationActivity : AppCompatActivity() {
                 tampilinData()
             }
             else{
-                totalAllCoffee += 1
+                totalAllCoffee = 0
+                tampilinData()
             }
         }
 
@@ -181,7 +194,7 @@ class PreparationActivity : AppCompatActivity() {
                 priceSell = inputPriceSell.text.toString().toInt()
             }
             else{
-                priceSell += 1
+                priceSell = 1
             }
         }
 
