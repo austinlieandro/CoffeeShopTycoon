@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#dfd0b7"
+    android:background="#f2dfd3"
     tools:context=".PreparationActivity">
 
     <ScrollView
