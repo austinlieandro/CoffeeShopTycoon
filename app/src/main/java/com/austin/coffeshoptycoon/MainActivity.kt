@@ -37,7 +37,6 @@ class MainActivity : AppCompatActivity() {
         editor.putStringSet("austinlie123", myset)
         editor.putStringSet("greensaiver", myset1)
         editor.putStringSet("a", myset2)
-        editor.putBoolean("First Time", true)
         editor.apply()
 
         buttonLogin = findViewById(R.id.btnLogin)
