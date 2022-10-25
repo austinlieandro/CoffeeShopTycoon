@@ -70,6 +70,8 @@ class PreparationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_preparation)
 
+        tampilinData()
+
         txtDay.text = "DAY ${Global.day}"
 
         val arrWeather : List<Weather> = Global.weather.toList()
