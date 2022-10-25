@@ -73,6 +73,7 @@ class SimulationActivity : AppCompatActivity() {
             }
             Global.simulation.add(Simulation(cusMessage, timeMessage))
         }
+
         val lm: LinearLayoutManager = LinearLayoutManager(this)
         recycleSimulation.layoutManager = lm
         recycleSimulation.setHasFixedSize(true)
