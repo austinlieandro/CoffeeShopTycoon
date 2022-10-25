@@ -284,6 +284,11 @@ class PreparationActivity : AppCompatActivity() {
     }
 
     fun tampilinData(){
+        if (Global.balance < total){
+            btnStartDay.isEnabled = false
+        }else{
+            btnStartDay.isEnabled = true
+        }
         totalPriceAll = totalPriceCoffe + totalPriceMilk + totalPriceWater
         totalPriceWater = waterPrice * countWater
         totalPriceMilk = milkPrice * countMilk
