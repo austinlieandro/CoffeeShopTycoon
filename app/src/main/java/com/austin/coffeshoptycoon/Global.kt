@@ -12,9 +12,9 @@ object Global {
     )
 
     var weather:List<Weather> = listOf(
-        Weather("Sunny Day"),
-        Weather("Rainy day"),
-        Weather("Thunderstorm")
+        Weather("Sunny Day", 1.0),
+        Weather("Rainy day", 0.25),
+        Weather("Thunderstorm", 0.1)
     )
 
     val simulation:ArrayList<Simulation> = ArrayList(

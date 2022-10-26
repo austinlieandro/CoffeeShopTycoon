@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_result.*
 import kotlinx.android.synthetic.main.activity_simulation.*
+import kotlin.math.roundToInt
 import kotlin.random.Random
 
 class SimulationActivity : AppCompatActivity() {
@@ -38,6 +39,7 @@ class SimulationActivity : AppCompatActivity() {
         var weather = intent.getStringExtra(PreparationActivity.WEATHER)
         var location = intent.getStringExtra(PreparationActivity.LOCATION)
         var locationPrice = intent.getStringExtra(PreparationActivity.LOCATIONPRICE).toString().toInt()
+        var multiplyWeather = intent.getDoubleExtra(PreparationActivity.MULTIPLYWEATHER, 0.0)
 
         var expenses = totalAllPrice
 
@@ -53,6 +55,7 @@ class SimulationActivity : AppCompatActivity() {
                 if (cupTersedia != 0){
                     if(perhitunganTerjual != dummyCup){
                         cupTerjual = (0 .. cupTersedia).shuffled().random()
+                        cupTerjual = (cupTerjual * multiplyWeather).roundToInt()
                         perhitunganTerjual += cupTerjual
                         cupTersedia -= cupTerjual
                         if (cupTerjual == 0){

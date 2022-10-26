@@ -21,6 +21,7 @@ class PreparationActivity : AppCompatActivity() {
         val LOCATION = "LOCATION"
         val LOCATIONPRICE = "LOCATIONPRICE"
         val DAY = "DAY"
+        val MULTIPLYWEATHER = "MULTIPLYWEATHER"
     }
 
     var coffeePrice = 500
@@ -362,6 +363,7 @@ class PreparationActivity : AppCompatActivity() {
         intent.putExtra("WEATHER", weather.name.toString())
         intent.putExtra("LOCATION", indexSpinner.toString())
         intent.putExtra("LOCATIONPRICE", priceRent.toString())
+        intent.putExtra("MULTIPLYWEATHER", weather.multilpy)
 
         startActivity(intent)
 
