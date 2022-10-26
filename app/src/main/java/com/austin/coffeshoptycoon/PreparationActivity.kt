@@ -35,7 +35,6 @@ class PreparationActivity : AppCompatActivity() {
     var totalPriceCoffe = coffeePrice * countCoffe
     var totalPriceMilk = milkPrice * countMilk
     var totalPriceWater = waterPrice * countWater
-
     var totalPriceAll = totalPriceCoffe + totalPriceMilk + totalPriceWater
 
     var priceRent = 0
@@ -46,7 +45,6 @@ class PreparationActivity : AppCompatActivity() {
     lateinit var inputMilk: EditText
     lateinit var inputWater: EditText
     lateinit var inputPriceSell: EditText
-
     lateinit var inputTemplateRecipes: EditText
 
     var totalAllCoffee = 0
@@ -82,17 +80,11 @@ class PreparationActivity : AppCompatActivity() {
         txtWeather.text = weather.name
 
         totalCoffee = findViewById(R.id.txtInputSell) as EditText
-
         textViewCoffee = findViewById(R.id.txtTotal) as TextView
-
         inputCoffee = findViewById(R.id.txtInputCoffee) as EditText
-
         inputMilk = findViewById(R.id.txtInputMilk) as EditText
-
         inputWater = findViewById(R.id.txtInputWater) as EditText
-
         inputPriceSell = findViewById(R.id.txtInputPrice) as EditText
-
         inputTemplateRecipes = findViewById(R.id.txtSaveRecipes) as EditText
 
         txtWelcome.text = "Welcome, ${Global.playerName}"
@@ -111,8 +103,7 @@ class PreparationActivity : AppCompatActivity() {
                 indexSpinner = Global.location[p2].namaTempat.toString()
                 priceRent = Global.location[p2].price.toInt()
                 tampilinData()
-            }
-            override fun onNothingSelected(p0: AdapterView<*>?) {
+            }override fun onNothingSelected(p0: AdapterView<*>?) {
             }
         }
 
@@ -131,17 +122,13 @@ class PreparationActivity : AppCompatActivity() {
         spinTemplateRecipes.onItemSelectedListener = object:AdapterView.OnItemSelectedListener{
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 if (Global.recipes[p2] == Global.recipes[0]){
-
-                }
-                else{
+                }else{
                     txtInputCoffee.setText(Global.recipes[p2].coffee)
                     txtInputMilk.setText(Global.recipes[p2].milk)
                     txtInputWater.setText(Global.recipes[p2].water)
                     tampilinData()
                 }
-            }
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-
+            }override fun onNothingSelected(p0: AdapterView<*>?) {
             }
         }
 
@@ -161,42 +148,37 @@ class PreparationActivity : AppCompatActivity() {
             if(inputMilk.text.toString() != ""){
                 countMilk = inputMilk.text.toString().toInt()
                 totalPriceMilk = milkPrice * countMilk
-                tampilinData()
             }else{
                 countMilk = 0
                 totalPriceMilk = milkPrice * countMilk
-                tampilinData()
             }
+            tampilinData()
         }
 
         txtInputWater.addTextChangedListener(){
             if (inputWater.text.toString() != ""){
                 countWater = inputWater.text.toString().toInt()
                 totalPriceWater = waterPrice * countWater
-                tampilinData()
             }else{
                 countWater = 0
                 totalPriceWater = waterPrice * countWater
-                tampilinData()
             }
+            tampilinData()
         }
 
         txtInputSell.addTextChangedListener(){
             if(totalCoffee.text.toString() != ""){
                 totalAllCoffee = totalCoffee.text.toString().toInt()
-                tampilinData()
-            }
-            else{
+            }else{
                 totalAllCoffee = 0
-                tampilinData()
             }
+            tampilinData()
         }
 
         txtInputPrice.addTextChangedListener(){
             if(inputPriceSell.text.toString() != ""){
                 priceSell = inputPriceSell.text.toString().toInt()
-            }
-            else{
+            }else{
                 priceSell = 0
             }
         }
@@ -209,8 +191,7 @@ class PreparationActivity : AppCompatActivity() {
         btnDownCoffee.setOnClickListener {
             if (countCoffe <= 0){
                 Toast.makeText(this, "Sorry Can't be less than 0", Toast.LENGTH_SHORT).show()
-            }
-            else {
+            }else {
                 countCoffe -= 1
                 txtInputCoffee.setText(countCoffe.toString())
                 tampilinData()
@@ -225,8 +206,7 @@ class PreparationActivity : AppCompatActivity() {
         btnDownMilk.setOnClickListener {
             if (countMilk <= 0){
                 Toast.makeText(this, "Sorry Can't be less than 0", Toast.LENGTH_SHORT).show()
-            }
-            else {
+            }else {
                 countMilk -= 1
                 txtInputMilk.setText(countMilk.toString())
                 tampilinData()
@@ -241,8 +221,7 @@ class PreparationActivity : AppCompatActivity() {
         btnDownWater.setOnClickListener {
             if (countWater <= 0){
                 Toast.makeText(this, "Sorry Can't be less than 0", Toast.LENGTH_SHORT).show()
-            }
-            else {
+            }else {
                 countWater -= 1
                 txtInputWater.setText(countWater.toString())
                 tampilinData()
@@ -259,28 +238,22 @@ class PreparationActivity : AppCompatActivity() {
                                     Global.balance = Global.balance - total
                                     tampilinData()
                                     toSimulationActivity()
-                                }
-                                else{
+                                }else{
                                     Toast.makeText(this, "your balance is insufficient", Toast.LENGTH_SHORT).show()
                                 }
-                            }
-                            else{
+                            }else{
                                 Toast.makeText(this, "The selling price of a cup of coffee is at least IDR 1", Toast.LENGTH_SHORT).show()
                             }
-                        }
-                        else{
+                        }else{
                             Toast.makeText(this, "The minimum number of cups of coffee to be sold is 1", Toast.LENGTH_SHORT).show()
                         }
-                    }
-                    else{
+                    }else{
                         Toast.makeText(this, "The number of components of water is at least 1", Toast.LENGTH_SHORT).show()
                     }
-                }
-                else{
+                }else{
                     Toast.makeText(this, "The number of components of milk is at least 1", Toast.LENGTH_SHORT).show()
                 }
-            }
-            else{
+            }else{
                 Toast.makeText(this, "The number of components of coffee is at least 1", Toast.LENGTH_SHORT).show()
             }
         }
