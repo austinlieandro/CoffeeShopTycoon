@@ -196,7 +196,7 @@ class PreparationActivity : AppCompatActivity() {
                 priceSell = inputPriceSell.text.toString().toInt()
             }
             else{
-                priceSell = 1
+                priceSell = 0
             }
         }
 
@@ -286,11 +286,6 @@ class PreparationActivity : AppCompatActivity() {
     }
 
     fun tampilinData(){
-        if (Global.balance < total){
-            btnStartDay.isEnabled = false
-        }else{
-            btnStartDay.isEnabled = true
-        }
         totalPriceAll = totalPriceCoffe + totalPriceMilk + totalPriceWater
         totalPriceWater = waterPrice * countWater
         totalPriceMilk = milkPrice * countMilk
@@ -302,6 +297,12 @@ class PreparationActivity : AppCompatActivity() {
         txtTotalPrice.text = "IDR " + hitungTotal(totalAllCoffee, totalPriceAll)
         txtTotal.text = "IDR " + theRealTotal(hitungTotal(totalAllCoffee, totalPriceAll), priceRent)
         txtBalance.text = "Balance : IDR ${Global.balance.toString()}"
+
+        if (Global.balance < total){
+            btnStartDay.isEnabled = false
+        }else{
+            btnStartDay.isEnabled = true
+        }
     }
 
     fun tampilDataTemplate(){
