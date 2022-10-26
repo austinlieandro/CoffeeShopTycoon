@@ -34,9 +34,11 @@ class MainActivity : AppCompatActivity() {
         val myset : Set<String> = setOf("Austin Lieandro", "lieandro")
         val myset1 : Set<String> = setOf("Lieandro Austin", "parkodetuak1")
         val myset2 : Set<String> = setOf("Lieandro Saja", "a")
+        val myset3 : Set<String> = setOf("Saja Lieandro", "b")
         editor.putStringSet("austinlie123", myset)
         editor.putStringSet("greensaiver", myset1)
         editor.putStringSet("a", myset2)
+        editor.putStringSet("b", myset3)
         editor.apply()
 
         buttonLogin = findViewById(R.id.btnLogin)
@@ -48,6 +50,7 @@ class MainActivity : AppCompatActivity() {
             val password1 = editTextPassword.text.toString()
 
             val password = shared.getStringSet(username1, null)
+
             if(password == null){
                 Toast.makeText(this, "Your username is wrong", Toast.LENGTH_SHORT).show()
             }
